@@ -5,7 +5,8 @@
             [ INFO ]
         </div>
         <div class="product-desc">
-            <app-description description="Cesar" [price]="unit_price"></app-description>
+            <app-description [description]="product.name" 
+            [price]="product.price"></app-description>
             <app-buttons name="Agregar"></app-buttons>
         </div>
     </div>
