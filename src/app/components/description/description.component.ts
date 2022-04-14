@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescriptionComponent implements OnInit {
 
+  description: string='Many desktop';
+  price: number= 20;
+  claseProducto: string='product-name';
+
+  
+
   constructor() { }
 
   ngOnInit(): void {
