@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
+  unit_price: number=32;
+
   constructor() { }
 
   ngOnInit(): void {
