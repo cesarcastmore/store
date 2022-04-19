@@ -9,6 +9,8 @@ export class ButtonsComponent implements OnInit {
 
   @Input() name: string='INFO';
 
+  contador: number=0;
+
 
   constructor() { }
 
@@ -16,8 +18,12 @@ export class ButtonsComponent implements OnInit {
   }
 
 
-  public onChange(event: any): void {
-    console.log(event);
+  public onClick(event: any): void {
+
+    this.contador+=1;
+
+
+
   }
 
 }
