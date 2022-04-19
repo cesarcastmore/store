@@ -15,4 +15,9 @@ export class ButtonsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  public onChange(event: any): void {
+    console.log(event);
+  }
+
 }
