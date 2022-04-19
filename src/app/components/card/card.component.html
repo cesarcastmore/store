@@ -7,7 +7,7 @@
         <div class="product-desc">
             <app-description [description]="product.name" 
             [price]="product.price"></app-description>
-            <app-buttons name="Agregar"></app-buttons>
+            <app-buttons name="Agregar" (onAction)="apply($event)"></app-buttons>
         </div>
     </div>
 </div>

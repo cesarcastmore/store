@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Button } from '../../models/button';
 
 @Component({
   selector: 'app-buttons',
@@ -7,9 +8,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ButtonsComponent implements OnInit {
 
-  @Input() name: string='INFO';
+  @Input() name: string = 'INFO';
 
-  contador: number=0;
+  contador: number = 0;
+
+
+  buttons: Button[] = [{
+    action: 'Agregar',
+    type: 'primary',
+    title: 'Agregar'
+  }, {
+    action: 'Borrar',
+    type: 'danger',
+    title: 'Borrar'
+  }]
+
+
+  @Output() onAction: EventEmitter<string> = new EventEmitter<string>();
+
+
 
 
   constructor() { }
@@ -18,11 +35,11 @@ export class ButtonsComponent implements OnInit {
   }
 
 
-  public onClick(event: any): void {
-
-    this.contador+=1;
+  public onClick(event: any, action: string): void {
 
 
+    this.contador += 1;
+    this.onAction.emit(action);
 
   }
 
