@@ -5,9 +5,11 @@
       <hr>
     </div>
     <ul class="list-unstyled components">
+
       <p>MENUS</p>
 
-      <li> <a href="#">Users</a> </li>
+      <li *ngFor="let menu of list_menus"> 
+        <a href=" #">{{menu.title}}</a> </li>
 
     </ul>
     <ul class="list-unstyled CTAs">
