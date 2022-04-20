@@ -10,6 +10,7 @@ import { ImagenComponent } from './components/imagen/imagen.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { ButtonsCartComponent } from './components/buttons-cart/buttons-cart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuComponent } from './components/menu/menu.component';
     ImagenComponent,
     DescriptionComponent,
     ButtonsComponent,
-    MenuComponent
+    MenuComponent,
+    ButtonsCartComponent
   ],
   imports: [
     BrowserModule,

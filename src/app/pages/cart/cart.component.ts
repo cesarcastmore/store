@@ -42,4 +42,12 @@ export class CartComponent implements OnInit {
 
   }
 
+
+  invoke(action: string, product: Product): void {
+
+    console.log(action);
+    console.log(product);
+
+  }
+
 }
