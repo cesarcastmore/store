@@ -5,16 +5,19 @@ export class Product {
 
     public quantity: number = 1;
 
+    public size: number = 0;
+    public color: string = '';
+
     constructor(name: string, price: number, quantity: number) {
         this.name = name;
         this.price = price;
-        this.quantity= quantity;
+        this.quantity = quantity;
 
     }
 
 
     public getAmount(): number {
-        return this.price* this.quantity;
+        return this.price * this.quantity;
 
     }
 
