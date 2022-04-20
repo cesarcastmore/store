@@ -8,6 +8,8 @@ export class Product {
     public size: number = 0;
     public color: string = '';
 
+    public id: number=0;
+
     constructor(name: string, price: number, quantity: number) {
         this.name = name;
         this.price = price;
