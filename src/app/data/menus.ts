@@ -2,8 +2,10 @@ import { Menu } from '../models/menu';
 
 
 export const menus: Menu[] = [{
-    title: 'Productos'
+    title: 'Productos',
+    url: '/productos'
 }, {
-    title: 'Perfil'
+    title: 'Perfil',
+    url: '/perfil'
 }
 ]
