@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
 import {ToastService} from '../../services/toast.service';
+import {ProductsService} from '../../services/products.service';
 
 
 @Component({
@@ -13,12 +14,7 @@ export class CartComponent implements OnInit {
 
   //lifecycle event
 
-  products: Product[] = [
-    new Product('Descripcion 1', 2, 1),
-    new Product('Descripcion 2', 6, 1),
-    new Product('Descripcion 3', 4, 1),
-    new Product('Descripcion 4', 8, 1)
-  ];
+  products: Product[] = [];
 
 
   sumatoria=0;
@@ -34,33 +30,14 @@ export class CartComponent implements OnInit {
 
 
 
-  constructor(private _toastService: ToastService) {
+  constructor(private _toastService: ToastService, private _productService: ProductsService) {
     
   }
 
   ngOnInit(): void {
 
+    this.products= this._productService.getProductos();
 
-
-    for (let i = 0; i < this.products.length; i++) {
-
-      this.products[i].id = i;
-
-      if (i == 1) {
-        this.products[i].size = 3;
-        this.products[i].color = "Red";
-      }
-    }
-
-    for (let product of this.products) {
-      product.color = 'Green';
-    }
-
-
-    //Arrow Functions
-    this.products.forEach((product: Product) => {
-      product.size = 4;
-    })
 
     this.sumatoria= this.sum();
 
@@ -86,6 +63,7 @@ export class CartComponent implements OnInit {
       this.products.splice(index, 1);
       this.sumatoria= this.sum();
       this._toastService.alert('danger', 'Se ha borrado el producto');
+      this._productService.setProductos(this.products);
 
 
     }
