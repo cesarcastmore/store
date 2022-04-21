@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
+import {ToastService} from '../../services/toast.service';
 
 @Component({
   selector: 'app-products',
@@ -25,9 +26,12 @@ export class ProductsComponent implements OnInit {
     ];
     */
 
-  constructor() { }
+  constructor(private _toastService: ToastService) {
+
+   }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
+import {ToastService} from '../../services/toast.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -32,7 +34,7 @@ export class CartComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(private _toastService: ToastService) {
     
   }
 
@@ -83,6 +85,7 @@ export class CartComponent implements OnInit {
       });
       this.products.splice(index, 1);
       this.sumatoria= this.sum();
+      this._toastService.alert('danger', 'Se ha borrado el producto');
 
 
     }
