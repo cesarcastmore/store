@@ -40,7 +40,8 @@
     </nav>
     <div class="content-wrapper">
 
-      <div *ngIf="_toastService.isActive" class="alert alert-{{_toastService.message.type}}" role="alert">
+      <div *ngIf="_toastService.isActive" class="alert" role="alert" 
+      [ngClass]="{'alert-danger': _toastService.message.type==='Error', 'alert-primary': _toastService.message.type==='Success'}">
         {{_toastService.message.message}}
       </div>
 

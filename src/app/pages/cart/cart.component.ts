@@ -62,9 +62,12 @@ export class CartComponent implements OnInit {
       });
       this.products.splice(index, 1);
       this.sumatoria= this.sum();
-      this._toastService.alert('danger', 'Se ha borrado el producto');
+      this._toastService.alert('Error', 'Se ha borrado el producto');
       this._productService.setProductos(this.products);
 
+
+    }else if(action==='Update'){
+      this._toastService.alert('Success', 'Se ha actualizado el producto');
 
     }
 
