@@ -11,6 +11,8 @@ import { DescriptionComponent } from './components/description/description.compo
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ButtonsCartComponent } from './components/buttons-cart/buttons-cart.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ButtonsCartComponent } from './components/buttons-cart/buttons-cart.com
     DescriptionComponent,
     ButtonsComponent,
     MenuComponent,
-    ButtonsCartComponent
+    ButtonsCartComponent,
+    ProductComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
