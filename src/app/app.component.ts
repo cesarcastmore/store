@@ -12,8 +12,17 @@ export class AppComponent {
 
   list_menus: Menu[] = menus;
 
+  isOpen: boolean=false;
+
   title = 'store';
   constructor(public _toastService: ToastService){
+
+  }
+
+
+  open(){
+
+    this.isOpen= !this.isOpen;
 
   }
 
