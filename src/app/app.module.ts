@@ -13,6 +13,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ButtonsCartComponent } from './components/buttons-cart/buttons-cart.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MenuComponent,
     ButtonsCartComponent,
     ProductComponent,
-    ProfileComponent
+    ProfileComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

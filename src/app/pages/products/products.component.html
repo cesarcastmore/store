@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4" *ngFor="let product of products">
+        <!-- El pipe tambien se puede utilizar dentro de una directiva ngFor-->
+        <div class="col-md-4" *ngFor="let product of products | sort:{key:'price',order:'asc'}">
             <app-card [product]="product"></app-card>
         </div>
     </div>
