@@ -1,6 +1,9 @@
 <div class="wrapper">
-  <nav id="sidebar" [ngClass]="{'': isOpen, 'active': !isOpen}">
-    <div class="sidebar-header">
+  <!--Estoy cambiando el color a los menus-->
+  <nav id="sidebar" [ngClass]="{'': isOpen, 'active': !isOpen}" 
+  [ngStyle]="{'background': configuration.color_menu, 'font-size': configuration.font_size_menu}">
+  <!--Estamos ocultando el logo dependiendo de la contante configutarion y cambiamos el estilo-->
+    <div class="sidebar-header"  [style.display]="configuration.show_logo ? 'block' : 'none'">
       <h3>BBBOOTSTRAP</h3>
       <hr>
     </div>
@@ -18,11 +21,11 @@
     </ul>
   </nav>
   <div class="content">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-      <button type="button" id="sidebarCollapse" (click)="open()"
-        class="btn btn-info"> <i class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button"
-        data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button type="button" id="sidebarCollapse" (click)="open()" class="btn btn-info"> <i
+          class="fa fa-align-justify"></i> </button> <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span
+          class="navbar-toggler-icon"></span> </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -41,8 +44,8 @@
     </nav>
     <div class="content-wrapper">
 
-      <div *ngIf="_toastService.isActive" class="alert" role="alert" 
-      [ngClass]="{'alert-danger': _toastService.message.type==='Error', 'alert-primary': _toastService.message.type==='Success'}">
+      <div *ngIf="_toastService.isActive" class="alert" role="alert"
+        [ngClass]="{'alert-danger': _toastService.message.type==='Error', 'alert-primary': _toastService.message.type==='Success'}">
         {{_toastService.message.message}}
       </div>
 
