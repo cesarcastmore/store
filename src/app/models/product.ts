@@ -10,6 +10,10 @@ export class Product {
 
     public id: number=0;
 
+
+    //Vamos a cambiar el formato de la fecha a un formato MXN
+    public date: Date= new Date();
+
     constructor(name: string, price: number, quantity: number) {
         this.name = name;
         this.price = price;
