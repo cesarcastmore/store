@@ -14,6 +14,7 @@ import { ButtonsCartComponent } from './components/buttons-cart/buttons-cart.com
 import { ProductComponent } from './pages/product/product.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SortPipe } from './pipes/sort.pipe';
+import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SortPipe } from './pipes/sort.pipe';
     ButtonsCartComponent,
     ProductComponent,
     ProfileComponent,
-    SortPipe
+    SortPipe,
+    TimestampToDatePipe
   ],
   imports: [
     BrowserModule,

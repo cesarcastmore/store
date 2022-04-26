@@ -31,6 +31,8 @@
                         <div class="font-size-lg text-primary pt-2">{{ '2012-12-01 11:32:12' | date:'dd-MM-yyyy' }}</div>
 
                         <!--Para casos como el timestamp usen la libreria moment js o datejs-->
+                        <div class="font-size-lg text-primary pt-2">{{  (product.created | timestampToDate) | date:'dd-MM-yyyy'  }}</div>
+
 
                     </div>
                 </div>

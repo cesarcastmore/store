@@ -11,8 +11,13 @@ export class Product {
     public id: number=0;
 
 
+
     //Vamos a cambiar el formato de la fecha a un formato MXN
     public date: Date= new Date();
+
+
+    //Esta variable va ser un timestamp y la vamos a usar en el pipe date
+    public created: number=0;
 
     constructor(name: string, price: number, quantity: number) {
         this.name = name;
@@ -25,6 +30,10 @@ export class Product {
     public getAmount(): number {
         return this.price * this.quantity;
 
+    }
+
+    public setCreated(timestamp: number){
+        
     }
 
 

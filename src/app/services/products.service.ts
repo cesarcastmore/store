@@ -35,6 +35,9 @@ export class ProductsService {
 
     for (let product of this.products) {
       product.color = 'Green';
+
+      //Este estamos simulando que es un timestamp
+      product.created= 1519482900000;
     }
 
 
