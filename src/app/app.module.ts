@@ -16,6 +16,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
 
+//Este modlo es para usar el formulario
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,9 @@ import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule//Se ocupo instalar
+
   ],
   providers: [],
   bootstrap: [AppComponent]
