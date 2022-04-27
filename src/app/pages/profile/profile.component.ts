@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FormGroup, FormControl} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -11,10 +11,12 @@ export class ProfileComponent implements OnInit {
 
   public template: string='Configuracion';
 
+
+  //FormControl, su segundo parametro es un arreglo de validaciones
   public profileForm: FormGroup = new FormGroup({
-    full_name: new FormControl(''),
-    username: new FormControl(''),
-    email: new FormControl('')
+    full_name: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email])
   });
 
   constructor() {
@@ -38,6 +40,8 @@ export class ProfileComponent implements OnInit {
     });
 
 
+
+
     //Detectando los cambios de un solo atributo
     this.profileForm.get('username')?.valueChanges.subscribe(username=>{
       console.log("valor de username", username);
@@ -47,13 +51,33 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  //Estas funciones van hacer tomada en el htmk como variables de solo lectura
+
+  get full_name(){
+    return this.profileForm.get('full_name');
+  }
+
+  get username(){
+    return this.profileForm.get('username');
+  }
+
+
+  get email(){
+    return this.profileForm.get('email');
+  }
+
+
   openTemplate(name: string){
     this.template= name;
   }
 
   save(){
 
-    console.log("Estoy guardando", this.profileForm.value);
+      console.log("Estoy guardando", this.profileForm.value);
+
+
+    
+
 
   }
 

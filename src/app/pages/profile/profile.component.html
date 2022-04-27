@@ -75,6 +75,9 @@
                                                             <div class="form-group">
                                                                 <label>Full Name</label>
                                                                 <input class="form-control" type="text" name="name" formControlName="full_name">
+                                                                <div class="alert alert-danger" *ngIf="full_name?.invalid">
+                                                                    El nombre completo es requerido
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col">
@@ -82,6 +85,9 @@
                                                                 <label>Username</label>
                                                                 <input class="form-control" type="text" name="username"
                                                                 formControlName="username">
+                                                                <div class="alert alert-danger" *ngIf="username?.invalid">
+                                                                    El username es requerido
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -90,7 +96,16 @@
                                                             <div class="form-group">
                                                                 <label>Email</label>
                                                                 <input class="form-control" type="text"
-                                                                formControlName="email">
+                                                                formControlName="email"  >
+                                                                <!--El correo tiene mas de 2 validaciones-->
+
+                                                                <!--Estamps imprimiendo un mensaje de error cuando el correo es invalido-->
+                                                                <div class="alert alert-danger" *ngIf="email?.invalid && email?.errors?.email">
+                                                                    el correo es invalido
+                                                                </div>
+                                                                <div class="alert alert-danger" *ngIf="email?.invalid && email?.errors?.required">
+                                                                    el correo es requerido
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -169,7 +184,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col d-flex justify-content-end">
-                                                    <button class="btn btn-primary" (click)="save()">Save Changes</button>
+                                                    <button class="btn btn-primary" (click)="save()" [disabled]="!profileForm.valid">Save Changes</button>
 
                                                     <button class="btn btn-danger" (click)="cancel()">Cancel Changes</button>
 
