@@ -18,6 +18,7 @@ import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
 
 //Este modlo es para usar el formulario
 import { ReactiveFormsModule } from '@angular/forms';
+import { FindPipe } from './pipes/find.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductComponent,
     ProfileComponent,
     SortPipe,
-    TimestampToDatePipe
+    TimestampToDatePipe,
+    FindPipe
   ],
   imports: [
     BrowserModule,
