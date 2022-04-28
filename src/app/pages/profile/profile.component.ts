@@ -11,12 +11,23 @@ export class ProfileComponent implements OnInit {
 
   public template: string='Configuracion';
 
+  //Esto lo vamos a imprimir en la opciones del selector, el name es lo que vera el usuario y el value lo que se
+  //guardar en la entidad profile
+
+  public estados: any[] =[
+    {value: 'CHIH', name: 'Chihuahua'}, 
+    {value: 'MEX',  name: 'Estado de México' },
+    {value: 'NL',  name: 'Nuevo Leon' },
+    {value: 'JAL',  name: 'Jalisco' }
+  ]
+
 
   //FormControl, su segundo parametro es un arreglo de validaciones
   public profileForm: FormGroup = new FormGroup({
     full_name: new FormControl('', [Validators.required]),
     username: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email])
+    email: new FormControl('', [Validators.required, Validators.email]),
+    state: new FormControl('MEX') //Esta propiedad es para obtener el estado y le estoy poniendo por defecto estado de mexico
   });
 
   constructor() {
@@ -72,12 +83,7 @@ export class ProfileComponent implements OnInit {
   }
 
   save(){
-
       console.log("Estoy guardando", this.profileForm.value);
-
-
-    
-
 
   }
 
