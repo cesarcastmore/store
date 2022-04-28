@@ -7,6 +7,10 @@ import {ProfileComponent } from './pages/profile/profile.component';
 import {DetailsProductComponent} from './pages/details-product/details-product.component';
 
 const routes: Routes = [{
+  path: '',
+  redirectTo: 'productos',
+  pathMatch: 'full'
+},{
   path: 'productos', 
   component: ProductsComponent
 },{
@@ -23,7 +27,8 @@ const routes: Routes = [{
 }, {
   path: 'detalles/producto/:id', 
   component: DetailsProductComponent
-}];
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
