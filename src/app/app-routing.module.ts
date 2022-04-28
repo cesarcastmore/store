@@ -4,6 +4,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import {CartComponent } from './pages/cart/cart.component';
 import {ProductComponent } from './pages/product/product.component';
 import {ProfileComponent } from './pages/profile/profile.component';
+import {DetailsProductComponent} from './pages/details-product/details-product.component';
 
 const routes: Routes = [{
   path: 'productos', 
@@ -19,6 +20,9 @@ const routes: Routes = [{
   path: 'perfil',
   component: ProfileComponent
 
+}, {
+  path: 'detalles/producto/:id', 
+  component: DetailsProductComponent
 }];
 
 @NgModule({
