@@ -3,7 +3,8 @@
 
 </span>
 <small class="text-muted">Category</small>
-<a href="#" class="{{claseProducto}}"> Product</a>
+<!--Esto es para abrir el enlace que dar los detalles del producto-->
+<a [routerLink]="['/productos',  product.id ]" class="{{claseProducto}}"> Product</a>
 
 <div class="small m-t-xs">
     {{ description }}

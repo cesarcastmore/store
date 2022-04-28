@@ -12,7 +12,7 @@ const routes: Routes = [{
   path: 'carrito', 
   component: CartComponent
 }, {
-  path: 'producto',
+  path: 'productos/:id', //esto es para pasar parametros en la ruta 
   component: ProductComponent
 
 },{
