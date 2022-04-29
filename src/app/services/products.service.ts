@@ -31,18 +31,26 @@ export class ProductsService {
     return this.http.get<Product[]>(environment.url + '/productos.json').pipe(
       map(result=>{
 
+        //El servicio necesito devolver un arreglo y estamos inicializando uno para irlo llenando
         let productos: Product[]=[];
 
+        //Hacermos un loop por los resultados que nos regreso firebase
+
         for(let key in result){
+
+          //instanciamos un producto y le asignamos sus propiedades
           let prd = result[key];
           let producto: Product= new Product(prd.name, prd.price, 1);
           producto.color= prd.color;
           producto.size= prd.size;
           producto.id= key;
+
+          //Lo estamos agregando a un arreglo
           productos.push(producto); 
 
         }
 
+        //El resultdo final es un arreglo de productos
         return productos;
 
       }))
