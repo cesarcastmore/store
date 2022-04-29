@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
+import { HttpClient } from '@angular/common/http';
+//Aqui estan almacenadas todas las variables de entorno
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  
+
 
   products: Product[] = [
     new Product('Pantalon', 2.3241, 1),//Estoy colocando varios decimales para usar decimal pipe y solo ajustarlo con dos
@@ -15,17 +21,38 @@ export class ProductsService {
     new Product('Abrigo', 8, 1)
   ];
 
+  //Estamos instanciando el servio de http para hacer peticiones y ya esta listo para usarse
+  constructor(private http: HttpClient) {
 
+  }
 
-  constructor() {
+  //Este metodo hacer un GET al servidor y esta regresando un observable
+  public getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(environment.url + '/productos.json').pipe(
+      map(result=>{
 
-   }
+        let productos: Product[]=[];
 
-   public getProductos(){
+        for(let key in result){
+          let prd = result[key];
+          let producto: Product= new Product(prd.name, prd.price, 1);
+          producto.color= prd.color;
+          producto.size= prd.size;
+          producto.id= key;
+          productos.push(producto); 
+
+        }
+
+        return productos;
+
+      }))
+  }
+
+  public getProductos() {
 
     for (let i = 0; i < this.products.length; i++) {
 
-      this.products[i].id = i;
+      //this.products[i].id = i;
 
       if (i == 1) {
         this.products[i].size = 3;
@@ -37,7 +64,7 @@ export class ProductsService {
       product.color = 'Green';
 
       //Este estamos simulando que es un timestamp
-      product.created= 1519482900000;
+      product.created = 1519482900000;
     }
 
 
@@ -47,12 +74,15 @@ export class ProductsService {
     })
 
 
-     return this.products;
-   }
+    return this.products;
+  }
 
 
-   public setProductos(products: Product[]): void{
-     this.products=products;
 
-   }
+
+
+  public setProductos(products: Product[]): void {
+    this.products = products;
+
+  }
 }

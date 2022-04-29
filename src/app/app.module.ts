@@ -20,6 +20,7 @@ import { TimestampToDatePipe } from './pipes/timestamp-to-date.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FindPipe } from './pipes/find.pipe';
 import { DetailsProductComponent } from './pages/details-product/details-product.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { DetailsProductComponent } from './pages/details-product/details-product
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule//Se ocupo instalar
+    ReactiveFormsModule,//Se ocupo instalar
+    HttpClientModule //Este modulo es para hacer peticiones al servidor
 
   ],
   providers: [],
