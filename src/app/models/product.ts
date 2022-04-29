@@ -8,7 +8,7 @@ export class Product {
     public size: number = 0;
     public color: string = '';
 
-    public id: string='';
+    public id: string | null='';
 
 
 

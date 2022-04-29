@@ -26,27 +26,51 @@ export class ProductsService {
 
   }
 
+
+  public getProduct(productId: string  | null): Observable<Product> {
+
+    return this.http.get<Product>(environment.url + '/productos/' + productId + '.json').pipe(
+      map(result => {
+
+        let producto: Product = new Product(result.name, result.price, 1);
+        producto.color = result.color;
+        producto.size = result.size;
+        producto.id = productId;
+
+        return producto;
+
+      })
+    );
+
+
+
+  }
+
+
+
+
+
   //Este metodo hacer un GET al servidor y esta regresando un observable
   public getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(environment.url + '/productos.json').pipe(
-      map(result=>{
+      map(result => {
 
         //El servicio necesito devolver un arreglo y estamos inicializando uno para irlo llenando
-        let productos: Product[]=[];
+        let productos: Product[] = [];
 
         //Hacermos un loop por los resultados que nos regreso firebase
 
-        for(let key in result){
+        for (let key in result) {
 
           //instanciamos un producto y le asignamos sus propiedades
           let prd = result[key];
-          let producto: Product= new Product(prd.name, prd.price, 1);
-          producto.color= prd.color;
-          producto.size= prd.size;
-          producto.id= key;
+          let producto: Product = new Product(prd.name, prd.price, 1);
+          producto.color = prd.color;
+          producto.size = prd.size;
+          producto.id = key;
 
           //Lo estamos agregando a un arreglo
-          productos.push(producto); 
+          productos.push(producto);
 
         }
 
