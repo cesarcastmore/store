@@ -36,6 +36,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log("Inicio profle");
+
+
     
 
     //Utilizando nullish https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator

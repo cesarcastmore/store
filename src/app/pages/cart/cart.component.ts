@@ -35,6 +35,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log("Inicio el carrito");
+
     this.products= this._productService.getProductos();
 
 
