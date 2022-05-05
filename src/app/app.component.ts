@@ -36,8 +36,20 @@ export class AppComponent implements OnInit {
 
     let orders$: Observable<Order> = this.orderService.getOrders();
 
-    orders$.subscribe((order:Order)=> {
-      console.log(order);
+    orders$.subscribe((order: Order) => {
+
+      if (!order.active) {
+        order.active = true;
+        let create_order$: Observable<Order> = this.orderService.postOrder(order);
+        create_order$.subscribe((order: Order) => {
+          this.orderService.setOrder(order);
+        });
+
+      }else {
+        this.orderService.setOrder(order);
+      }
+
+
     })
 
 
