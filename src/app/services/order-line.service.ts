@@ -62,6 +62,10 @@ export class OrderLineService {
 
   }
 
+  public putOrderLine(orderLine: OrderLine): Observable<OrderLine> {
+    return this.http.put<OrderLine>(environment.url + '/order_lines/' + orderLine.id + '.json', orderLine)
+  }
+
 
 
 

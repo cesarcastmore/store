@@ -169,4 +169,21 @@ export class CartComponent implements OnInit {
 
   }
 
+
+  updateQuantity(quantity: number, orderLine:OrderLine) {
+
+    orderLine.quantity= quantity;
+    orderLine.amount=orderLine.quantity* orderLine.price;
+    let putOrderLine$: Observable<OrderLine> = this._orderLineService.putOrderLine(orderLine);
+    putOrderLine$.subscribe(orderLine => {
+      this.sum();
+    });
+
+
+
+
+
+
+  }
+
 }

@@ -117,4 +117,24 @@ export class ProductsService {
     this.products = products;
 
   }
+
+  public getProducto(productId: string):Observable<Product>{
+    return this.http.get<Product>(environment.url + '/productos/'+productId+' .json' ).pipe(
+      map(result=>{
+        let producto: Product = new Product(result.name, result.price, 1);
+
+        producto.color= result.color;
+        producto.date= result.date;
+        producto.size= result.size;
+        producto.id= productId;
+
+        return producto;
+
+      })
+    );
+
+  }
+
+
+  
 }

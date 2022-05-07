@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FindPipe } from './pipes/find.pipe';
 import { DetailsProductComponent } from './pages/details-product/details-product.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailOrderLineComponent } from './components/detail-order-line/detail-order-line.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     SortPipe,
     TimestampToDatePipe,
     FindPipe,
-    DetailsProductComponent
+    DetailsProductComponent,
+    DetailOrderLineComponent
   ],
   imports: [
     BrowserModule,
